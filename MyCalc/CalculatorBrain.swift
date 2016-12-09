@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//com
+//comment
 enum Optional<T>{
     case None
     case Some(T)
