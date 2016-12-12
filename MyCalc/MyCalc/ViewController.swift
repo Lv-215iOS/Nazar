@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var outputController: OutputController? = nil
+    
     @IBOutlet weak private var display: UILabel!
 
     private var userIsTyping = false // check if user is typing
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
             display.text = String(newValue)
         }
     }
-
+    
     private var brain: CalculatorBrain = CalculatorBrain()
 
     @IBAction  private func performOperation(_ sender: UIButton) {
@@ -45,6 +47,16 @@ class ViewController: UIViewController {
         
         }
         displayValue = brain.result
+    }
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "OutputControllerEmbadSeque" {
+            
+            outputController = segue.destination as? OutputController
+            
+        }
     }
 }
 
