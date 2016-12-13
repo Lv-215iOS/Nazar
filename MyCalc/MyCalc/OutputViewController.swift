@@ -14,7 +14,8 @@ protocol OutputInterface {
 class OutputViewController: UIViewController {
     
         var mainViewController : ViewController? = nil
-    
+    @IBOutlet weak  var display: UILabel!// pattime
+
     
     //@IBOutlet weak private var display: UILabel!
 
