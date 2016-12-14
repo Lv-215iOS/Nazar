@@ -13,14 +13,11 @@ protocol OutputInterface {
 }
 class OutputViewController: UIViewController {
     
-        var mainViewController : ViewController? = nil
-    @IBOutlet weak  var display: UILabel!// pattime
-
+    var mainViewController : ViewController? = nil
+    
+    @IBOutlet weak  var display: UILabel!
     
     //@IBOutlet weak private var display: UILabel!
-
-
-    
 
     /*var displayValue: Double{
         get {
@@ -36,6 +33,5 @@ class OutputViewController: UIViewController {
             mainViewController = segue.source as? ViewController
         }
     }
-
 
 }

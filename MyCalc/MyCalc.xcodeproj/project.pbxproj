@@ -60,15 +60,15 @@
 		259BA1C31DF83776004AE204 /* MyCalc */ = {
 			isa = PBXGroup;
 			children = (
-				25E795D01DF855AA00DDA3E1 /* CalculatorBrain.swift */,
-				259BA1C61DF83776004AE204 /* ViewController.swift */,
-				259BA1C81DF83776004AE204 /* Main.storyboard */,
+				259BA1C41DF83776004AE204 /* AppDelegate.swift */,
 				259BA1CB1DF83776004AE204 /* Assets.xcassets */,
 				259BA1CD1DF83776004AE204 /* LaunchScreen.storyboard */,
 				259BA1D01DF83776004AE204 /* Info.plist */,
+				259BA1C81DF83776004AE204 /* Main.storyboard */,
+				25E795D01DF855AA00DDA3E1 /* CalculatorBrain.swift */,
+				259BA1C61DF83776004AE204 /* ViewController.swift */,
 				255D9D361DFE9EA100C8F3A2 /* OutputViewController.swift */,
 				255D9D381DFEA95800C8F3A2 /* InputViewController.swift */,
-				259BA1C41DF83776004AE204 /* AppDelegate.swift */,
 			);
 			path = MyCalc;
 			sourceTree = "<group>";

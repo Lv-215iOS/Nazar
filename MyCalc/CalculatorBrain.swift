@@ -46,8 +46,6 @@ protocol CalcBrainInterface {
 }
 
 
-
-
 class CalculatorBrain{
     private var accumulator: Double = 0.0 //accumulate the result
 
@@ -108,10 +106,6 @@ class CalculatorBrain{
         var firstOperand:Double
         
     }
-    
-    
-    
-    
     
     var result: Double{
         get{
