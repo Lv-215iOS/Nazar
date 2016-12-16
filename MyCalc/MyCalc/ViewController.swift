@@ -14,16 +14,6 @@ class ViewController: UIViewController {
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OutputControllerEmbedSegue" {
-            outputController = segue.destination as? OutputViewController
-            //outputController?.ViewController = self
-        } else if segue.identifier == "InputControllerEmbedSegue" {
-            inputController = segue.destination as? InputViewController
-            inputController?.mainViewController = self
-        }
-    }
-    
     func pressedButton(operation : String) {
         switch operation {
         case "+":
@@ -54,6 +44,27 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "InputControllerEmbadSeque" {
+            inputController = segue.destination as? InputViewController
+            inputController?.mainViewController = self
+        } else if segue.identifier == "OutputControllerEmbadSeque" {
+            outputController = segue.destination as? OutputViewController
+            //outputController?.ViewController = self
+        }
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "InputControllerEmbedSegue" {
+            inputController = segue.destination as? InputViewController
+            inputController?.mainViewController = self
+        } else if segue.identifier == "OutputControllerEmbedSegue" {
+            outputController = segue.destination as? OutputViewController
+            //outputController?.ViewController = self
+        }
+    }
+    */
 }
+
 
