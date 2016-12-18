@@ -38,13 +38,16 @@ class CalculatorBrain {
     var result: ((Double?, Error?)->())? = nil
     var leftOperand: Double?
     var rightOperand: Double?
-    var currentOperand: Double?
+    //var currentOperand: Double?
     var resultValue: Double?
     var temp: String? = nil
+    //var outputController : OutputViewController? = nil
+
     
     func digit(value: Double) {
         if leftOperand == nil {
             leftOperand = value
+            
         } else if rightOperand == nil {
             rightOperand = value
         }
@@ -54,8 +57,11 @@ class CalculatorBrain {
         switch operation {
         case .Plus:
             resultValue = (leftOperand ?? 0.0) + (rightOperand ?? 0.0)
+            //outputController?.outputInfo(info: operation.rawValue)
             temp = operation.rawValue
             print("Plus")
+
+            
         case .Minus:
             resultValue = (leftOperand ?? 0.0) - (rightOperand ?? 0.0)
             temp = operation.rawValue
@@ -80,11 +86,13 @@ class CalculatorBrain {
         case .Equal:
             switch temp! {
             case "-" :
-                resultValue = leftOperand! - rightOperand!
-                print("\(resultValue)")
+                leftOperand = leftOperand! - rightOperand!
+                print("\(leftOperand)")
+                rightOperand = nil
             case "+" :
-                resultValue = leftOperand! + rightOperand!
-                print("\(resultValue)")
+                leftOperand = leftOperand! + rightOperand!
+                print("\(leftOperand)")
+                rightOperand = nil
             case "*" :
                 resultValue = leftOperand! * rightOperand!
                 print("\(resultValue)")
