@@ -8,41 +8,24 @@
 
 import UIKit
 
-/*protocol InputInterface {
-    var buttonDidPress: ((_ operation: String)->())? {get set}
-}
-*/
-class InputViewController: UIViewController/*, InputInterface*/ {
+class InputViewController: UIViewController {
     
     var mainViewController : ViewController? = nil
-    //var buttonDidPress: ((String) -> ())? = nil
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        
-         mainViewController?.pressedButton(operation: sender.currentTitle!)
+        mainViewController?.pressedButton(operation: sender.currentTitle!)
         print("\(sender.currentTitle)")
-
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "InputControllerEmbedSegue" {
-            mainViewController = segue.source as? ViewController
-        }*/
-        override func viewDidLoad() {
-            super.viewDidLoad()// Do any additional setup after loading the view.
-        }
-        
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()// Dispose of any resources that can be recreated.
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()// Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()// Dispose of any resources that can be recreated.
+    }
 }
-
-/*var userIsTyping = false // check if user is typing
- 
- @IBOutlet weak  var display: UILabel!// pattime
- 
- 
- 
+/*
  @IBAction private func pressDigit(_ sender: UIButton) {
  let digit =  sender.currentTitle!
  if userIsTyping{

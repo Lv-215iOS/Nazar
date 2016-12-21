@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var outputController : OutputViewController? = nil
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
+    var userIsTyping = true
     
     func pressedButton(operation : String) {
         switch operation {
@@ -23,19 +24,28 @@ class ViewController: UIViewController {
             outputController?.outputInfo(info: operation)
             calcBrain.binary(operation: .Minus)
         case "*":
-             outputController?.outputInfo(info: operation)
+            outputController?.outputInfo(info: operation)
             calcBrain.binary(operation: .Mul)
         case "/":
-             outputController?.outputInfo(info: operation)
+            outputController?.outputInfo(info: operation)
             calcBrain.binary(operation: .Div)
         case "sqrt":
-             outputController?.outputInfo(info: operation)
+            outputController?.outputInfo(info: operation)
             calcBrain.unary(operation: .Sqrt)
         case "=":
-             outputController?.outputInfo(info: operation)
+            outputController?.outputInfo(info: operation)
             calcBrain.utility(operation: .Equal)
+        case "cos":
+            outputController?.outputInfo(info: operation)
+            calcBrain.unary(operation: .Cos)
+        case "sin":
+            outputController?.outputInfo(info: operation)
+            calcBrain.unary(operation: .Sin)
+        case "AC":
+            outputController?.outputInfo(info: operation)
+            calcBrain.utility(operation: .AClean)
         default:
-             outputController?.outputInfo(info: operation)
+            outputController?.outputInfo(info: operation)
             calcBrain.digit(value: Double(operation)!)
         }
     }
@@ -46,25 +56,13 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "InputControllerEmbadSeque" {
+        if segue.identifier == "InputControllerEmbadSeque" {
             inputController = segue.destination as? InputViewController
             inputController?.mainViewController = self
         } else if segue.identifier == "OutputControllerEmbadSeque" {
             outputController = segue.destination as? OutputViewController
-            //outputController?.ViewController = self
         }
     }
-    
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "InputControllerEmbedSegue" {
-            inputController = segue.destination as? InputViewController
-            inputController?.mainViewController = self
-        } else if segue.identifier == "OutputControllerEmbedSegue" {
-            outputController = segue.destination as? OutputViewController
-            //outputController?.ViewController = self
-        }
-    }
-    */
 }
 
 
