@@ -142,5 +142,3 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
 }
-
-

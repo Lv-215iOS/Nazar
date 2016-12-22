@@ -23,5 +23,3 @@ class OutputViewController:UIViewController, OutputInterface{
         display2.text = info!
     }
 }
-
-
