@@ -39,93 +39,80 @@ protocol CalcBrainInterface {
 
 class CalculatorBrain: CalcBrainInterface {
     
-    var result: ((Double?, Error?)->())? = nil
-    var leftOperand: Double?
-    var rightOperand: Double?
-    var resultValue: Double?
+    var accumulatorValue: Double?
     var temp: String? = nil
-    var userIsTyping = false
+    var pending: PendingBinaryOperationInfo?
+    var result: ((Double?, Error?)->())? = nil
+    var operations: Dictionary <String, Operation> = [
+        "√" : Operation.UnaryOperation(sqrt),
+        "cos" : Operation.UnaryOperation(cos),
+        "sin": Operation.UnaryOperation(sin),
+        "tg" : Operation.UnaryOperation(tan),
+        "ctg": Operation.UnaryOperation({1 / tan($0)}),
+        "log": Operation.UnaryOperation(log2),
+        "*": Operation.BinaryOperation({ $0 * $1 }),
+        "/": Operation.BinaryOperation({ $0 / $1 }),
+        "+": Operation.BinaryOperation({ $0 + $1 }),
+        "-": Operation.BinaryOperation({ $0 - $1 }),
+        "^": Operation.BinaryOperation({pow($0, $1)}),
+        "=": Operation.Equals
+    ]
     
-    func digit(value: Double) {
-        if leftOperand == nil {
-            leftOperand = value
-            print("leftOperand = \(leftOperand)")
-        } else if rightOperand == nil {
-            rightOperand = value
-            print("rightOperand = \(rightOperand)")
+    enum Operation {
+        case UnaryOperation((Double) -> Double)
+        case BinaryOperation((Double, Double) -> Double)
+        case Equals
+    }
+    
+    struct PendingBinaryOperationInfo {
+        var binaryFunction: (Double, Double) -> Double
+        var fistOperand: Double
+    }
+    
+    func executePendingBinaryOperation() {
+        if pending != nil {
+            accumulatorValue = pending!.binaryFunction(pending!.fistOperand, accumulatorValue!)
+            pending = nil
         }
     }
     
-    func binary(operation: BinaryOperation) {
-        switch operation {
-        case .Plus:
-            resultValue = (leftOperand ?? 0.0) + (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Plus")
-        case .Minus:
-            resultValue = (leftOperand ?? 0.0) - (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Minus")
-        case .Mul:
-            resultValue = (leftOperand ?? 0.0) * (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Multiply")
-        case .Div:
-            resultValue = (leftOperand ?? 0.0) / (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Divide")
-        default: break
+    func digit(value: Double) {
+        accumulatorValue = value
+    }
+    
+    func utility(operation: UtilityOperation) {
+        if let operationSymbol = operations[operation.rawValue] {
+            switch operationSymbol {
+            case .Equals:
+                executePendingBinaryOperation()
+                result?(accumulatorValue, nil)
+            default:
+                break
+            }
         }
     }
     
     func unary(operation: UnaryOperation) {
-        switch operation {
-        case .Sqrt:
-            leftOperand = (sqrt(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Squre root = \(leftOperand)" )
-        case .Cos:
-            leftOperand = (cos(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Cos = \(leftOperand)")
-        case .Sin:
-            leftOperand = (sin(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Sin = \(leftOperand)")
-        }
-    }
-    
-    func utility(operation: UtilityOperation) {
-        switch operation {
-        case .Equal:
-            switch temp! {
-            case "-" :
-                leftOperand = leftOperand! - rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "+" :
-                leftOperand = leftOperand! + rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "*" :
-                leftOperand = leftOperand! * rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "/" :
-                leftOperand = leftOperand! / rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
+        if let operationSymbol = operations[operation.rawValue] {
+            switch operationSymbol {
+            case .UnaryOperation(let function):
+                accumulatorValue = function(accumulatorValue!)
+                result?(accumulatorValue, nil)
             default:
                 break
             }
-        case .AClean:
-            resultValue = 0.0
-            leftOperand = nil
-            rightOperand = nil
-        case .Clean:
-            break
-        case .Dot:
-            break
+        }
+    }
+    
+    func binary(operation: BinaryOperation) {
+        if let operationSymbol = operations[operation.rawValue] {
+            switch operationSymbol {
+            case .BinaryOperation(let function):
+                executePendingBinaryOperation()
+                pending = PendingBinaryOperationInfo(binaryFunction: function, fistOperand: accumulatorValue!)
+            default:
+                break
+            }
         }
     }
     
@@ -140,5 +127,9 @@ class CalculatorBrain: CalcBrainInterface {
             let possibleUtility = UtilityOperation(rawValue: symbol)
             self.utility(operation: possibleUtility!)
         }
+    }
+    
+    func clear() {
+        accumulatorValue = 0.0
     }
 }

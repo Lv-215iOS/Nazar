@@ -13,41 +13,57 @@ class ViewController: UIViewController {
     var outputController : OutputViewController? = nil
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
-    var userIsTyping = true
-    
-    func pressedButton(operation : String) {
-        switch operation {
-        case "+":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Plus)
-        case "-":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Minus)
-        case "*":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Mul)
-        case "/":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Div)
-        case "sqrt":
-            outputController?.outputInfo(info: operation)
-            calcBrain.unary(operation: .Sqrt)
-        case "=":
-            outputController?.outputInfo(info: operation)
-            calcBrain.utility(operation: .Equal)
-        case "cos":
-            outputController?.outputInfo(info: operation)
-            calcBrain.unary(operation: .Cos)
-        case "sin":
-            outputController?.outputInfo(info: operation)
-            calcBrain.unary(operation: .Sin)
-        case "AC":
-            outputController?.outputInfo(info: operation)
-            calcBrain.utility(operation: .AClean)
-        default:
-            outputController?.outputInfo(info: operation)
-            calcBrain.digit(value: Double(operation)!)
+    var UserIsInTheMiddleOfTyping = false
+    var decimalUsed = false
+    var displayValue: Double {
+        get {
+            return Double(outputController!.display.text!)!
         }
+        set {
+            outputController!.display.text = String(newValue)
+        }
+    }
+    
+    func buttonPressed(button: UIButton) {
+        let digit = button.currentTitle!
+        if UserIsInTheMiddleOfTyping {
+            if digit == "." && decimalUsed == true {
+                decimalUsed = false
+            } else if digit == "." && decimalUsed == false {
+                decimalUsed = true
+            }
+            let TextCurrentlyInDisplay = outputController!.display.text!
+            outputController!.display.text = TextCurrentlyInDisplay + digit
+        } else {
+            outputController!.display.text = digit
+        }
+        UserIsInTheMiddleOfTyping = true
+    }
+   
+    func performingCurrentOperation(operation: UIButton) {
+        if UserIsInTheMiddleOfTyping {
+            calcBrain.digit(value: displayValue)
+            UserIsInTheMiddleOfTyping = false
+        }
+        calcBrain.perform0peration(symbol: operation.currentTitle!)
+        calcBrain.result = { (value, error) -> () in
+            if (value != nil) {
+                self.outputController?.outputResult(info: "\(value!)")
+            }
+        }
+    }
+    
+    func clerAll(operand: AnyObject) {
+        UserIsInTheMiddleOfTyping = false
+        decimalUsed = false
+        print("clear pressed")
+        calcBrain.clear()
+        //displayValue = head.result
+        calcBrain.result = { (value, error) -> () in
+            self.displayValue = value!
+        }
+        self.outputController?.display.text = "0"
+        self.outputController?.display2.text = "0"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

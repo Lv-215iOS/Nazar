@@ -9,17 +9,16 @@
 import UIKit
 
 protocol OutputInterface {
-    func outputInfo(info: String?)
+    func outputResult(info: String)
 }
 
-class OutputViewController:UIViewController, OutputInterface{
+class OutputViewController:UIViewController, OutputInterface {
     
     var mainViewController : ViewController? = nil
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var display2: UILabel!
     
-    func outputInfo(info: String?){
-        display.text = display.text! + info!
-        display2.text = info!
+    func outputResult(info: String) {
+        display2.text = info
     }
 }
