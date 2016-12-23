@@ -54,11 +54,8 @@ class ViewController: UIViewController {
     }
     
     func clerAll(operand: AnyObject) {
-        UserIsInTheMiddleOfTyping = false
-        decimalUsed = false
         print("clear pressed")
         calcBrain.clear()
-        //displayValue = head.result
         calcBrain.result = { (value, error) -> () in
             self.displayValue = value!
         }

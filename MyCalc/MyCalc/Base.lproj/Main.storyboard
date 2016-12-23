@@ -117,7 +117,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="+"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="o2Z-Vw-ntm"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="T54-Kp-18T"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cy9-V0-BBm">
@@ -126,7 +126,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="-"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="J2m-Ov-lHs"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="v4O-br-u7O"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-Yo-gUO">
@@ -135,7 +135,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="/"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="rg2-yG-gu0"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="bfS-0m-0wK"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81c-FQ-att">
@@ -144,7 +144,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="*"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="vT7-w3-OgQ"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="arz-nQ-4Mk"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -158,7 +158,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="1"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="Tni-yL-NBt"/>
+                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="yrU-hr-P7J"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-8P-uwh">
@@ -185,7 +185,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="."/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="mpR-zs-RkY"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="nn4-Oa-CHQ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -267,7 +267,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="="/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="3jY-FA-lgb"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="qZ6-6A-YKq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -281,7 +281,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="^"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="0xC-Rt-mVD"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="Tum-mb-tB3"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eX-eE-PEU">
@@ -290,7 +290,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="sin"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="M6p-gz-SgS"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="P5N-1q-R8N"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-Rd-vZg">
@@ -299,7 +299,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="cos"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="bdu-hg-bQg"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="Iks-0Z-vLh"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB1-3h-RMe">
@@ -308,7 +308,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <state key="normal" title="sqrt"/>
                                                         <connections>
-                                                            <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="XsY-gy-tk8"/>
+                                                            <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="JE2-Ra-RtU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -324,7 +324,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="C"/>
                                                 <connections>
-                                                    <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="voA-To-xfn"/>
+                                                    <action selector="performOperation:" destination="N9v-5J-pL6" eventType="touchUpInside" id="JL2-ue-wUG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyh-OJ-16l">
@@ -333,7 +333,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="AC"/>
                                                 <connections>
-                                                    <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="KlK-B5-Pld"/>
+                                                    <action selector="clear:" destination="N9v-5J-pL6" eventType="touchUpInside" id="c3V-Ur-8QU"/>
                                                 </connections>
                                             </button>
                                         </subviews>

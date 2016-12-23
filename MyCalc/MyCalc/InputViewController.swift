@@ -14,10 +14,13 @@ class InputViewController: UIViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         mainViewController?.buttonPressed(button: sender)
-        print("\(sender.currentTitle)")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()// Do any additional setup after loading the view.
+    @IBAction func performOperation(_ sender: UIButton) {
+        mainViewController?.performingCurrentOperation(operation: sender)
+    }
+    
+    @IBAction func clear(_ sender: AnyObject) {
+        mainViewController?.clerAll(operand: sender)
     }
 }
