@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             userIsInTheMiddleOfTyping = false
         }
         decimalUsed = false
-        calcBrain.perform0peration(symbol: operation)
+        calcBrain.performOperation(symbol: operation)
         
         calcBrain.result = { (value, error) -> () in
             if (value != nil) {
@@ -108,10 +108,13 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "InputControllerEmbadSeque" {
-            inputController = segue.destination as? InputViewController
-        } else if segue.identifier == "OutputControllerEmbadSeque" {
+        if segue.identifier == "OutputControllerEmbedSegue" {
             outputController = segue.destination as? OutputViewController
+        } else if segue.identifier == "InputControllerEmbedSegue" {
+            inputController = segue.destination as? InputViewController
+            inputController?.buttonDidPress = { [unowned self] operation in
+                self.buttonDidPress(operation: operation)
+            }
         }
     }
 }

@@ -87,7 +87,7 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
     
-    func perform0peration(symbol: String) {
+    func performOperation(symbol: String) {
         if BinaryOperation(rawValue: symbol) != nil {
             let possibleBinary = BinaryOperation(rawValue: symbol)
             self.binary(operation: possibleBinary!)
