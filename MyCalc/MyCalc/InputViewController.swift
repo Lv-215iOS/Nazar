@@ -8,19 +8,12 @@
 
 import UIKit
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, InputInterface {
     
-    var mainViewController : ViewController? = nil
+    var buttonDidPress: ((String) -> ())? = nil
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        mainViewController?.buttonPressed(button: sender)
+    @IBAction func buttonDidPress(_ sender: UIButton) {
+        buttonDidPress?(sender.currentTitle!)
     }
-    
-    @IBAction func performOperation(_ sender: UIButton) {
-        mainViewController?.performingCurrentOperation(operation: sender)
-    }
-    
-    @IBAction func clear(_ sender: AnyObject) {
-        mainViewController?.clerAll(operand: sender)
-    }
+
 }

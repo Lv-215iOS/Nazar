@@ -8,17 +8,13 @@
 
 import UIKit
 
-protocol OutputInterface {
-    func outputResult(info: String)
-}
-
 class OutputViewController:UIViewController, OutputInterface {
     
-    var mainViewController : ViewController? = nil
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var display2: UILabel!
     
     func outputResult(info: String) {
-        display2.text = info
+        display2.text = display.text!
+        display.text = info
     }
 }

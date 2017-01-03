@@ -8,35 +8,6 @@
 
 import UIKit
 
-enum BinaryOperation : String {
-    case Plus = "+"
-    case Minus = "-"
-    case Mul = "*"
-    case Div = "/"
-    case Power = "^"
-}
-
-enum UtilityOperation : String {
-    case Dot = "."
-    case Equal = "="
-    case Clean = "C"
-    case AClean = "AC"
-}
-
-enum UnaryOperation : String {
-    case Sin = "sin"
-    case Cos = "cos"
-    case Sqrt = "sqrt"
-}
-
-protocol CalcBrainInterface {
-    func digit(value: Double)
-    func binary(operation: BinaryOperation)
-    func unary(operation: UnaryOperation)
-    func utility(operation: UtilityOperation)
-    var result: ((Double?, Error?)->())? {get set}
-}
-
 class CalculatorBrain: CalcBrainInterface {
     
     var accumulatorValue: Double?
