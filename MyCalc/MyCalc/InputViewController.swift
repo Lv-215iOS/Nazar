@@ -11,7 +11,7 @@ import UIKit
 class InputViewController: UIViewController {
     
     var mainViewController : ViewController? = nil
-    
+
     @IBAction func buttonPressed(_ sender: UIButton) {
         mainViewController?.pressedButton(operation: sender.currentTitle!)
         print("\(sender.currentTitle)")

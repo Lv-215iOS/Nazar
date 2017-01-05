@@ -8,11 +8,9 @@
 
 import UIKit
 
-protocol OutputInterface {
-    func outputInfo(info: String?)
-}
 
-class OutputViewController:UIViewController, OutputInterface{
+
+class OutputViewController:UIViewController, OutputInterface {
     
     var mainViewController : ViewController? = nil
     @IBOutlet weak var display: UILabel!
