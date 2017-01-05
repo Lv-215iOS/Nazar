@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var calcBrain = CalculatorBrain()
     var userIsTyping = true
     
+ 
+    
     func pressedButton(operation : String) {
         switch operation {
         case "+":

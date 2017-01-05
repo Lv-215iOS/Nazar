@@ -16,8 +16,4 @@ class InputViewController: UIViewController {
         mainViewController?.pressedButton(operation: sender.currentTitle!)
         print("\(sender.currentTitle)")
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()// Do any additional setup after loading the view.
-    }
 }

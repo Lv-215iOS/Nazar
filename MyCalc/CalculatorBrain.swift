@@ -117,28 +117,16 @@ class CalculatorBrain: CalcBrainInterface {
                 rightOperand = nil
             default:
                 break
+                
             }
         case .AClean:
             resultValue = 0.0
             leftOperand = nil
             rightOperand = nil
-        case .Clean:
-            break
         case .Dot:
             break
-        }
-    }
-    
-    func perform0peration(symbol: String) {
-        if BinaryOperation(rawValue: symbol) != nil {
-            let possibleBinary = BinaryOperation(rawValue: symbol)
-            self.binary(operation: possibleBinary!)
-        } else if UnaryOperation(rawValue: symbol) != nil {
-            let possibleUnary = UnaryOperation(rawValue: symbol)
-            self.unary(operation: possibleUnary!)
-        } else if UtilityOperation(rawValue: symbol) != nil {
-            let possibleUtility = UtilityOperation(rawValue: symbol)
-            self.utility(operation: possibleUtility!)
+        default:
+            break
         }
     }
 }
