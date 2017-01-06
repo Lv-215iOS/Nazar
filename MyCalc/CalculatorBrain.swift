@@ -90,7 +90,7 @@ class CalculatorBrain: CalcBrainInterface {
                 break
                 
             }
-        case .AClean:
+        case .Clean:
             resultValue = 0.0
             leftOperand = nil
             rightOperand = nil

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var calcBrain = CalculatorBrain()
     var userIsTyping = true
     
- 
+    
     
     func pressedButton(operation : String) {
         switch operation {
@@ -43,9 +43,9 @@ class ViewController: UIViewController {
         case "sin":
             outputController?.outputInfo(info: operation)
             calcBrain.unary(operation: .Sin)
-        case "AC":
+        case "C":
             outputController?.outputInfo(info: operation)
-            calcBrain.utility(operation: .AClean)
+            calcBrain.utility(operation: .Clean)
         default:
             outputController?.outputInfo(info: operation)
             calcBrain.digit(value: Double(operation)!)
