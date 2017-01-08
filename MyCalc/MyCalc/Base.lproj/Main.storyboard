@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g5J-l6-rao">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g5J-l6-rao">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -113,8 +113,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p4-bE-amW">
-                                <rect key="frame" x="16" y="20" width="42" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p4-bE-amW">
+                                <rect key="frame" x="17" y="1" width="56" height="140.66666666666666"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="^">
@@ -124,8 +124,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="0xC-Rt-mVD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eX-eE-PEU">
-                                <rect key="frame" x="16" y="62" width="42" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eX-eE-PEU">
+                                <rect key="frame" x="17" y="142.66666666666669" width="56" height="141.00000000000006"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="sin">
@@ -135,8 +135,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="M6p-gz-SgS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-Rd-vZg">
-                                <rect key="frame" x="16" y="104" width="42" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-Rd-vZg">
+                                <rect key="frame" x="17" y="284.66666666666669" width="56" height="140.66666666666663"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="cos">
@@ -146,8 +146,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="bdu-hg-bQg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB1-3h-RMe">
-                                <rect key="frame" x="16" y="146" width="42" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB1-3h-RMe">
+                                <rect key="frame" x="17" y="426.33333333333326" width="56" height="140.66666666666674"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="sqrt">
@@ -157,8 +157,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="XsY-gy-tk8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ve-Jq-IBh">
-                                <rect key="frame" x="59" y="20" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ve-Jq-IBh">
+                                <rect key="frame" x="74" y="1" width="55.666666666666657" height="140.66666666666666"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="+">
@@ -168,8 +168,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="o2Z-Vw-ntm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cy9-V0-BBm">
-                                <rect key="frame" x="59" y="62" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cy9-V0-BBm">
+                                <rect key="frame" x="74" y="142.66666666666669" width="55.666666666666657" height="141.00000000000006"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="-">
@@ -179,8 +179,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="J2m-Ov-lHs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-Yo-gUO">
-                                <rect key="frame" x="59" y="104" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-Yo-gUO">
+                                <rect key="frame" x="74" y="284.66666666666669" width="55.666666666666657" height="140.66666666666663"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="/">
@@ -190,8 +190,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="rg2-yG-gu0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81c-FQ-att">
-                                <rect key="frame" x="59" y="146" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81c-FQ-att">
+                                <rect key="frame" x="74" y="426.33333333333326" width="55.666666666666657" height="140.66666666666674"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="*">
@@ -201,8 +201,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="vT7-w3-OgQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsT-aT-mCA">
-                                <rect key="frame" x="90" y="20" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsT-aT-mCA">
+                                <rect key="frame" x="130.66666666666666" y="1" width="56" height="140.66666666666666"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="1">
@@ -212,8 +212,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="Tni-yL-NBt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-8P-uwh">
-                                <rect key="frame" x="90" y="62" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-8P-uwh">
+                                <rect key="frame" x="130.66666666666666" y="142.66666666666669" width="56" height="141.00000000000006"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="4">
@@ -223,8 +223,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="zaV-Ea-4sE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-vU-nw0">
-                                <rect key="frame" x="90" y="104" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-vU-nw0">
+                                <rect key="frame" x="130.66666666666666" y="284.66666666666669" width="56" height="140.66666666666663"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="7">
@@ -234,8 +234,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="8wo-tg-nYs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mW-68-iDr">
-                                <rect key="frame" x="90" y="146" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mW-68-iDr">
+                                <rect key="frame" x="130.66666666666666" y="426.33333333333326" width="56" height="140.66666666666674"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title=".">
@@ -245,8 +245,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="mpR-zs-RkY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6C-an-4qV">
-                                <rect key="frame" x="121" y="20" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6C-an-4qV">
+                                <rect key="frame" x="187.66666666666666" y="1" width="55.666666666666686" height="140.66666666666666"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="2">
@@ -256,8 +256,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="4Bz-Pd-xXp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-fd-pzd">
-                                <rect key="frame" x="121" y="62" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-fd-pzd">
+                                <rect key="frame" x="187.66666666666666" y="142.66666666666669" width="55.666666666666686" height="141.00000000000006"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="5">
@@ -267,8 +267,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="om9-LM-LTn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84L-hF-2TI">
-                                <rect key="frame" x="121" y="104" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84L-hF-2TI">
+                                <rect key="frame" x="187.66666666666666" y="284.66666666666669" width="55.666666666666686" height="140.66666666666663"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="8">
@@ -278,8 +278,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="MUP-j2-Ci2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qar-aK-ckz">
-                                <rect key="frame" x="121" y="146" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qar-aK-ckz">
+                                <rect key="frame" x="187.66666666666666" y="426.33333333333326" width="55.666666666666686" height="140.66666666666674"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="0">
@@ -289,8 +289,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="SJO-u1-kvz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-C9-bgn">
-                                <rect key="frame" x="152" y="20" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-C9-bgn">
+                                <rect key="frame" x="244.33333333333331" y="1" width="55.999999999999943" height="140.66666666666666"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="3">
@@ -300,8 +300,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="x49-iH-QA2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-2L-FN7">
-                                <rect key="frame" x="152" y="62" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-2L-FN7">
+                                <rect key="frame" x="244.33333333333331" y="142.66666666666669" width="55.999999999999943" height="141.00000000000006"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="6">
@@ -311,8 +311,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="deX-N7-vnH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjN-a8-0ZW">
-                                <rect key="frame" x="152" y="104" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjN-a8-0ZW">
+                                <rect key="frame" x="244.33333333333331" y="284.66666666666669" width="55.999999999999943" height="140.66666666666663"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="9">
@@ -322,8 +322,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="r5F-T5-4Uo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9B-bX-n2O">
-                                <rect key="frame" x="152" y="146" width="30" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9B-bX-n2O">
+                                <rect key="frame" x="244.33333333333331" y="426.33333333333326" width="55.999999999999943" height="140.66666666666674"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="C">
@@ -333,8 +333,8 @@
                                     <action selector="buttonPressed:" destination="N9v-5J-pL6" eventType="touchUpInside" id="voA-To-xfn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-rO-qNT">
-                                <rect key="frame" x="183" y="20" width="32" height="167"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-rO-qNT">
+                                <rect key="frame" x="301.33333333333326" y="1" width="55.666666666666686" height="563"/>
                                 <color key="backgroundColor" red="0.78400707244873047" green="0.16472428908432718" blue="0.1847453116748615" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="=">

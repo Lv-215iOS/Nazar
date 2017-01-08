@@ -13,11 +13,19 @@ class ViewController: UIViewController {
     var outputController : OutputViewController? = nil
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
-    var userIsTyping = true
+    var userIsTyping = false
+    var decimalUsed = false
+    var disolayValue: Double {
+        get {
+            return Double(outputController!.display.text!)!
+        }
+        set {
+            outputController!.display.text = String(newValue)
+        }
+    }
     
     
-    
-    func pressedButton(operation : String) {
+    func buttonDidPress(operation : String) {
         switch operation {
         case "+":
             outputController?.outputInfo(info: operation)
@@ -34,9 +42,7 @@ class ViewController: UIViewController {
         case "sqrt":
             outputController?.outputInfo(info: operation)
             calcBrain.unary(operation: .Sqrt)
-        case "=":
-            outputController?.outputInfo(info: operation)
-            calcBrain.utility(operation: .Equal)
+            
         case "cos":
             outputController?.outputInfo(info: operation)
             calcBrain.unary(operation: .Cos)
@@ -46,16 +52,41 @@ class ViewController: UIViewController {
         case "C":
             outputController?.outputInfo(info: operation)
             calcBrain.utility(operation: .Clean)
+        case ".":
+            dotWasPressed(operation: operation)
+        case "=":
+            equalWasPressed(operation: operation)
         default:
             outputController?.outputInfo(info: operation)
             calcBrain.digit(value: Double(operation)!)
         }
     }
     
+    func dotWasPressed(operation: String) {
+        if decimalUsed && userIsTyping {
+            outputController!.display.text = String(outputController!.display.text! + ".")
+            decimalUsed = true
+        } else if !decimalUsed && !userIsTyping {
+            outputController!.display.text = String("0.")
+            userIsTyping = true
+        }
+    }
+    
+    func equalWasPressed (operation: String) {
+        calcBrain.result = { (resultValue, error) ->() in
+            if (resultValue?.isNaN)!  {
+                self.outputController?.outputInfo(info: "Not-a-Number")
+            } else if(resultValue?.isInfinite)! {
+                self.outputController?.outputInfo(info: "∞")
+            } else {
+                self.outputController?.outputInfo(info: String(describing: resultValue!))
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "InputControllerEmbadSeque" {
             inputController = segue.destination as? InputViewController
-            inputController?.mainViewController = self
         } else if segue.identifier == "OutputControllerEmbadSeque" {
             outputController = segue.destination as? OutputViewController
         }

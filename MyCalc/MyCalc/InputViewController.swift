@@ -8,12 +8,11 @@
 
 import UIKit
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, InputInterface {
     
-    var mainViewController : ViewController? = nil
+    var buttonDidPress: ((String) -> ())? = nil
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        mainViewController?.pressedButton(operation: sender.currentTitle!)
-        print("\(sender.currentTitle)")
+    buttonDidPress?(sender.currentTitle!)
     }
 }
