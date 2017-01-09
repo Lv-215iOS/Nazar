@@ -11,6 +11,7 @@ import UIKit
 class InputViewController: UIViewController, InputInterface {
     
     var buttonDidPress: ((String) -> ())? = nil
+
     
     @IBAction func buttonPressed(_ sender: UIButton) {
     buttonDidPress?(sender.currentTitle!)

@@ -14,16 +14,28 @@ class CalculatorBrain: CalcBrainInterface {
     var leftOperand: Double?
     var rightOperand: Double?
     var resultValue: Double?
-    var temp: String? = nil
     var userIsTyping = false
+           var operationSymbol: BinaryOperation?
     
     func digit(value: Double) {
         if leftOperand == nil {
             leftOperand = value
-            print("leftOperand = \(leftOperand)")
+            print("\(leftOperand)")
+   
         } else if rightOperand == nil {
             rightOperand = value
-            print("rightOperand = \(rightOperand)")
+            print("\(rightOperand)")
+    
+        }
+    }
+    
+    func saveBinaryOperationSymbol(symbol: String){//identifies case from enum as string of the symbol pressed
+        switch symbol {
+        case "+": operationSymbol = BinaryOperation.Plus
+        case "-": operationSymbol = BinaryOperation.Minus
+        case "×": operationSymbol = BinaryOperation.Mul
+        case "÷": operationSymbol = BinaryOperation.Div
+        default: break
         }
     }
     
@@ -31,20 +43,16 @@ class CalculatorBrain: CalcBrainInterface {
         switch operation {
         case .Plus:
             resultValue = (leftOperand ?? 0.0) + (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Plus")
+            result?(resultValue, nil)
         case .Minus:
             resultValue = (leftOperand ?? 0.0) - (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Minus")
+            result?(resultValue, nil)
         case .Mul:
             resultValue = (leftOperand ?? 0.0) * (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Multiply")
+       result?(resultValue, nil)
         case .Div:
             resultValue = (leftOperand ?? 0.0) / (rightOperand ?? 0.0)
-            temp = operation.rawValue
-            print("Divide")
+            result?(resultValue, nil)
         default: break
         }
     }
@@ -53,49 +61,28 @@ class CalculatorBrain: CalcBrainInterface {
         switch operation {
         case .Sqrt:
             leftOperand = (sqrt(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Squre root = \(leftOperand)" )
+          
         case .Cos:
             leftOperand = (cos(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Cos = \(leftOperand)")
+       
+          
         case .Sin:
             leftOperand = (sin(leftOperand ?? 0.0 ))
-            temp = operation.rawValue
-            print("Sin = \(leftOperand)")
+          
+            
         }
     }
     
     func utility(operation: UtilityOperation) {
         switch operation {
         case .Equal:
-            switch temp! {
-            case "-" :
-                leftOperand = leftOperand! - rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "+" :
-                leftOperand = leftOperand! + rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "*" :
-                leftOperand = leftOperand! * rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            case "/" :
-                leftOperand = leftOperand! / rightOperand!
-                print("result = \(leftOperand)")
-                rightOperand = nil
-            default:
-                break
-                
+            if operationSymbol != nil {
+                binary(operation: operationSymbol!)
             }
         case .Clean:
             resultValue = 0.0
             leftOperand = nil
             rightOperand = nil
-        case .Dot:
-            break
         default:
             break
         }

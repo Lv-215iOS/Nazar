@@ -18,6 +18,9 @@ class OutputViewController:UIViewController, OutputInterface {
     
     func outputInfo(info: String?){
         display.text = display.text! + info!
-        display2.text = info!
+    }
+    
+    func outputResult(result: String?){
+            display2.text = result!
     }
 }
