@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         }
         set {
             outputController!.display.text = String(newValue)
+            userIsTyping = false
         }
     }
     
@@ -29,17 +30,20 @@ class ViewController: UIViewController {
         switch operation {
         case "+":
             binaryOperationButtonPressed(operation: operation)
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Plus)
+//          outputController?.outputInfo(info: operation)
+//            calcBrain.binary(operation: .Plus)
         case "-":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Minus)
+              binaryOperationButtonPressed(operation: operation)
+//            outputController?.outputInfo(info: operation)
+//            calcBrain.binary(operation: .Minus)
         case "*":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Mul)
+              binaryOperationButtonPressed(operation: operation)
+//            outputController?.outputInfo(info: operation)
+//            calcBrain.binary(operation: .Mul)
         case "/":
-            outputController?.outputInfo(info: operation)
-            calcBrain.binary(operation: .Div)
+              binaryOperationButtonPressed(operation: operation)
+//            outputController?.outputInfo(info: operation)
+//            calcBrain.binary(operation: .Div)
         case "sqrt":
             outputController?.outputInfo(info: operation)
             calcBrain.unary(operation: .Sqrt)
@@ -79,7 +83,7 @@ class ViewController: UIViewController {
             } else if(resultValue?.isInfinite)! {
                 self.outputController?.outputResult(result: "∞")
             } else {
-                self.outputController?.outputResult(result: String(describing: resultValue!))
+                self.outputController?.outputResult(result:  "(\resultValue!)")
                 print("\(resultValue)")
             }
         }
@@ -100,17 +104,21 @@ class ViewController: UIViewController {
         
         if userIsTyping == true && calcBrain.leftOperand == nil {
             calcBrain.digit(value: displayValue)//sets operand
+            calcBrain.saveBinaryOperationSymbol(symbol: operation)
             userIsTyping = false
         } else if userIsTyping == true && calcBrain.leftOperand != nil {//for multiple operations and operations after "="
             calcBrain.digit(value: displayValue)//sets operand
             calcBrain.result = { (resultValue, error)->() in
-                self.outputController?.outputInfo(info: String(describing: resultValue!))//displays result
+                self.outputController?.outputResult(result: String(describing: resultValue!))//displays result
             }
             calcBrain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             calcBrain.leftOperand = calcBrain.resultValue
             calcBrain.rightOperand = nil
             calcBrain.resultValue = nil
             userIsTyping = false
+            calcBrain.saveBinaryOperationSymbol(symbol: operation)
+        } else {
+            calcBrain.saveBinaryOperationSymbol(symbol: operation)
         }
     }
     

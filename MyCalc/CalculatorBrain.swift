@@ -15,16 +15,16 @@ class CalculatorBrain: CalcBrainInterface {
     var rightOperand: Double?
     var resultValue: Double?
     var userIsTyping = false
-           var operationSymbol: BinaryOperation?
+    var operationSymbol: BinaryOperation?
     
     func digit(value: Double) {
         if leftOperand == nil {
             leftOperand = value
-            print("\(leftOperand)")
+            print("leftoperand\(leftOperand)")
    
         } else if rightOperand == nil {
             rightOperand = value
-            print("\(rightOperand)")
+            print("righnt operand\(rightOperand)")
     
         }
     }
@@ -33,8 +33,8 @@ class CalculatorBrain: CalcBrainInterface {
         switch symbol {
         case "+": operationSymbol = BinaryOperation.Plus
         case "-": operationSymbol = BinaryOperation.Minus
-        case "×": operationSymbol = BinaryOperation.Mul
-        case "÷": operationSymbol = BinaryOperation.Div
+        case "*": operationSymbol = BinaryOperation.Mul
+        case "/": operationSymbol = BinaryOperation.Div
         default: break
         }
     }
@@ -43,6 +43,7 @@ class CalculatorBrain: CalcBrainInterface {
         switch operation {
         case .Plus:
             resultValue = (leftOperand ?? 0.0) + (rightOperand ?? 0.0)
+             print("result\(resultValue)")
             result?(resultValue, nil)
         case .Minus:
             resultValue = (leftOperand ?? 0.0) - (rightOperand ?? 0.0)
@@ -61,6 +62,7 @@ class CalculatorBrain: CalcBrainInterface {
         switch operation {
         case .Sqrt:
             leftOperand = (sqrt(leftOperand ?? 0.0 ))
+            result?(leftOperand, nil)
           
         case .Cos:
             leftOperand = (cos(leftOperand ?? 0.0 ))
