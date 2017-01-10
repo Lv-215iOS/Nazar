@@ -17,7 +17,7 @@ class OutputViewController:UIViewController, OutputInterface {
     @IBOutlet weak var display2: UILabel!
     
     func outputInfo(info: String?){
-        display.text = display.text! + info!
+        display.text =  info!
     }
     
     func outputResult(result: String?){

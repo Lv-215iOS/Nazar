@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
     
     var outputController : OutputViewController? = nil
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
     var userIsTyping = false
-    var decimalUsed = false
+    var decimalUsed = true
 
     var displayValue: Double {
         get {
@@ -30,62 +30,39 @@ class ViewController: UIViewController {
         switch operation {
         case "+":
             binaryOperationButtonPressed(operation: operation)
-//          outputController?.outputInfo(info: operation)
-//            calcBrain.binary(operation: .Plus)
+
         case "-":
               binaryOperationButtonPressed(operation: operation)
-//            outputController?.outputInfo(info: operation)
-//            calcBrain.binary(operation: .Minus)
+
         case "*":
               binaryOperationButtonPressed(operation: operation)
-//            outputController?.outputInfo(info: operation)
-//            calcBrain.binary(operation: .Mul)
+
         case "/":
               binaryOperationButtonPressed(operation: operation)
-//            outputController?.outputInfo(info: operation)
-//            calcBrain.binary(operation: .Div)
+
+        case "^":
+            binaryOperationButtonPressed(operation: operation)
+
         case "sqrt":
-            outputController?.outputInfo(info: operation)
-            calcBrain.unary(operation: .Sqrt)
+         
+            unaryOperationPressed(operation: operation)
             
         case "cos":
-            outputController?.outputInfo(info: operation)
+         
             calcBrain.unary(operation: .Cos)
         case "sin":
-            outputController?.outputInfo(info: operation)
+         
             calcBrain.unary(operation: .Sin)
         case "C":
-            clearPressed(operation : operation)
+            cleanPressed(operation : operation)
         case ".":
             dotWasPressed(operation: operation)
         case "=":
             equalWasPressed(operation: operation)
+         
         default:
             buttonPressed(button: operation)
-            //calcBrain.digit(value: Double(operation)!)
-        }
-    }
-    
-    func dotWasPressed(operation: String) {
-        if decimalUsed && userIsTyping {
-            outputController!.display.text = String(outputController!.display.text! + ".")
-            decimalUsed = true
-        } else if !decimalUsed && !userIsTyping {
-            outputController!.display.text = String("0.")
-            userIsTyping = true
-        }
-    }
-    
-    func equalWasPressed (operation: String) {
-        calcBrain.result = { (resultValue, error) ->() in
-            if (resultValue?.isNaN)!  {
-                self.outputController?.outputResult(result: "Not-a-Number")
-            } else if(resultValue?.isInfinite)! {
-                self.outputController?.outputResult(result: "∞")
-            } else {
-                self.outputController?.outputResult(result:  "(\resultValue!)")
-                print("\(resultValue)")
-            }
+
         }
     }
     
@@ -106,12 +83,12 @@ class ViewController: UIViewController {
             calcBrain.digit(value: displayValue)//sets operand
             calcBrain.saveBinaryOperationSymbol(symbol: operation)
             userIsTyping = false
-        } else if userIsTyping == true && calcBrain.leftOperand != nil {//for multiple operations and operations after "="
+        } else if userIsTyping == true && calcBrain.leftOperand != nil {
             calcBrain.digit(value: displayValue)//sets operand
             calcBrain.result = { (resultValue, error)->() in
-                self.outputController?.outputResult(result: String(describing: resultValue!))//displays result
+                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)//displays result
             }
-            calcBrain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
+            calcBrain.utility(operation: UtilityOperation.Equal)
             calcBrain.leftOperand = calcBrain.resultValue
             calcBrain.rightOperand = nil
             calcBrain.resultValue = nil
@@ -120,44 +97,54 @@ class ViewController: UIViewController {
         } else {
             calcBrain.saveBinaryOperationSymbol(symbol: operation)
         }
-    }
-    
-    func clearPressed(operation : String) {
-        calcBrain.leftOperand = 0
-        calcBrain.rightOperand = 0
-        displayValue = 0
-        outputController?.outputInfo(info: "")
-        outputController?.outputResult(result: "")
-        userIsTyping = false
-        calcBrain.resultValue = nil
         
     }
     
-    func unaryOperationProcessing(operation: String) {
-        calcBrain.result = { (resultValue, error)->() in
+    func equalWasPressed (operation: String) {
+        calcBrain.result = { (resultValue, error) ->() in
             if resultValue != nil {
-                if (resultValue?.isNaN)!  {
-                    self.outputController?.outputResult(result: "Not-a-Number")
-                } else if(resultValue?.isInfinite)! {
-                    self.outputController?.outputResult(result: "∞")
-                } else {
-                    self.outputController?.outputResult(result: String(describing: resultValue!))
-                }
+                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)
+                print("\(resultValue)")
+                
             }
         }
+        if calcBrain.leftOperand != nil && calcBrain.rightOperand != nil {
+            calcBrain.leftOperand = calcBrain.resultValue
+        }
+        calcBrain.digit(value: displayValue)
+        calcBrain.utility(operation: UtilityOperation.Equal)
+    }
+
+    func dotWasPressed(operation: String) {
+        
+        if decimalUsed && userIsTyping {
+            outputController!.display.text = String(outputController!.display.text! + ".")
+            decimalUsed = false
+        } else if !decimalUsed && !userIsTyping {
+            outputController!.display.text = String("0.")
+            userIsTyping = true
+        }
+    }
+    
+    func cleanPressed(operation : String) {
+        calcBrain.utility(operation: .Clean)
+        displayValue = 0
+        outputController?.outputInfo(info: "")
+        outputController?.outputResult(result: "0")
+        userIsTyping = false
     }
     
     func unaryOperationPressed(operation : String) {
         if calcBrain.rightOperand == nil {
-            unaryOperationProcessing(operation: operation)
+            equalWasPressed(operation: operation)
+           calcBrain.saveUnaryOperationSymbol(symbol: operation)
         } else if calcBrain.resultValue != nil && calcBrain.leftOperand != nil {
-            unaryOperationProcessing(operation: operation)
+           equalWasPressed(operation: operation)
+             calcBrain.saveUnaryOperationSymbol(symbol: operation)
             calcBrain.leftOperand = nil
             calcBrain.rightOperand = nil
         }
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "InputControllerEmbadSeque" {
