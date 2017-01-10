@@ -10,9 +10,8 @@ import UIKit
 
 
 
-class OutputViewController:UIViewController, OutputInterface {
+class OutputViewController: UIViewController, OutputInterface {
     
-    var mainViewController : ViewController? = nil
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var display2: UILabel!
     
@@ -21,6 +20,6 @@ class OutputViewController:UIViewController, OutputInterface {
     }
     
     func outputResult(result: String?){
-            display2.text = result!
+        display2.text = result!
     }
 }

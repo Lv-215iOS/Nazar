@@ -14,19 +14,34 @@ enum BinaryOperation : String {
     case Mul = "*"
     case Div = "/"
     case Power = "^"
+    case Mod = "%"
 }
 
 enum UtilityOperation : String {
+    case RightBracket = ")"
+    case LeftBracket = "("
     case Dot = "."
     case Equal = "="
     case Clean = "C"
-    case AClean = "AC"
+    case MPlus = "M+"
+    case MMinus = "M-"
+    case MClear = "MC"
+    case MRead = "MR"
 }
 
 enum UnaryOperation : String {
     case Sin = "sin"
     case Cos = "cos"
     case Sqrt = "sqrt"
+    case Tg = "tg"
+    case Ctg = "ctg"
+    case Ln = "ln"
+    case Log = "log"
+    case Sinh = "sinh"
+    case Cosh = "cosh"
+    case Tgh = "tgh"
+    case Ctgh = "ctgh"
+    case Fact = "!"
 }
 
 protocol CalcBrainInterface {

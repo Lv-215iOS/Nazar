@@ -9,14 +9,15 @@
 import UIKit
 
 class CalculatorBrain: CalcBrainInterface {
- 
+    
     var result: ((Double?, Error?)->())? = nil
     var leftOperand: Double?
     var rightOperand: Double?
     var resultValue: Double?
     var userIsTyping = false
     var operationSymbol: BinaryOperation?
-   
+    
+    /// function that sets operand
     func digit(value: Double) {
         if leftOperand == nil {
             leftOperand = value
@@ -25,7 +26,8 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
     
-    func saveBinaryOperationSymbol(symbol: String) {//identifies case from enum as string of the symbol pressed
+    /// function that contanins the enum of binary operation symbols
+    func saveBinaryOperationSymbol(symbol: String) {
         switch symbol {
         case "+": operationSymbol = BinaryOperation.Plus
         case "-": operationSymbol = BinaryOperation.Minus
@@ -36,19 +38,21 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
     
+    /// function that contanins the enum of binary operation symbols
     func saveUnaryOperationSymbol (symbol: String) {
         switch symbol {
         case "sqrt":
             unary(operation: UnaryOperation.Sqrt)
-            case "sin":
+        case "sin":
             unary(operation: UnaryOperation.Sin)
-            case "cos":
+        case "cos":
             unary(operation: UnaryOperation.Cos)
         default:
             break
         }
     }
     
+    /// function that perform binary operations
     func binary(operation: BinaryOperation) {
         switch operation {
         case .Plus:
@@ -59,16 +63,20 @@ class CalculatorBrain: CalcBrainInterface {
             result?(resultValue, nil)
         case .Mul:
             resultValue = (leftOperand ?? 0.0) * (rightOperand ?? 0.0)
-       result?(resultValue, nil)
+            result?(resultValue, nil)
         case .Div:
             resultValue = (leftOperand ?? 0.0) / (rightOperand ?? 0.0)
             result?(resultValue, nil)
         case .Power:
             resultValue = pow(leftOperand ?? 0.0, rightOperand ?? 0.0)
-             result?(resultValue, nil)
+            result?(resultValue, nil)
+            
+        default:
+            break
         }
     }
     
+    /// function that perform unary operations
     func unary(operation: UnaryOperation) {
         switch operation {
         case .Sqrt:
@@ -83,12 +91,15 @@ class CalculatorBrain: CalcBrainInterface {
             leftOperand = (sin(leftOperand ?? 0.0 ))
             resultValue = leftOperand
             result?(resultValue, nil)
+        
+        default:
+            break
         }
     }
-    
+    /// function that perform utility operations
     func utility(operation: UtilityOperation) {
         switch operation {
-       case .Equal:
+        case .Equal:
             if operationSymbol != nil {
                 binary(operation: operationSymbol!)
             }
@@ -97,7 +108,6 @@ class CalculatorBrain: CalcBrainInterface {
             rightOperand = nil
             resultValue = nil
             
-           
         default:
             break
         }

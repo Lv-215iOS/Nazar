@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController {
     
     var outputController : OutputViewController? = nil
     var inputController : InputViewController? = nil
     var calcBrain = CalculatorBrain()
     var userIsTyping = false
     var decimalUsed = true
-
+    
     var displayValue: Double {
         get {
             return Double(outputController!.display.text!)!
@@ -25,44 +25,35 @@ class ViewController: UIViewController, UITableViewDelegate {
             userIsTyping = false
         }
     }
-    
+    /// function which recognize the type of pressed button
     func buttonDidPress(operation : String) {
         switch operation {
         case "+":
             binaryOperationButtonPressed(operation: operation)
-
         case "-":
-              binaryOperationButtonPressed(operation: operation)
-
+            binaryOperationButtonPressed(operation: operation)
         case "*":
-              binaryOperationButtonPressed(operation: operation)
-
+            binaryOperationButtonPressed(operation: operation)
         case "/":
-              binaryOperationButtonPressed(operation: operation)
-
+            binaryOperationButtonPressed(operation: operation)
         case "^":
             binaryOperationButtonPressed(operation: operation)
-
         case "sqrt":
-         
             unaryOperationPressed(operation: operation)
-            
         case "cos":
-         
-            calcBrain.unary(operation: .Cos)
+            unaryOperationPressed(operation: operation)
         case "sin":
-         
-            calcBrain.unary(operation: .Sin)
+            unaryOperationPressed(operation: operation)
         case "C":
             cleanPressed(operation : operation)
         case ".":
             dotWasPressed(operation: operation)
         case "=":
             equalWasPressed(operation: operation)
-         
+            
         default:
             buttonPressed(button: operation)
-
+            
         }
     }
     
@@ -80,13 +71,13 @@ class ViewController: UIViewController, UITableViewDelegate {
     func binaryOperationButtonPressed(operation : String) {
         
         if userIsTyping == true && calcBrain.leftOperand == nil {
-            calcBrain.digit(value: displayValue)//sets operand
+            calcBrain.digit(value: displayValue)
             calcBrain.saveBinaryOperationSymbol(symbol: operation)
             userIsTyping = false
         } else if userIsTyping == true && calcBrain.leftOperand != nil {
-            calcBrain.digit(value: displayValue)//sets operand
+            calcBrain.digit(value: displayValue)
             calcBrain.result = { (resultValue, error)->() in
-                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)//displays result
+                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)// displays result
             }
             calcBrain.utility(operation: UtilityOperation.Equal)
             calcBrain.leftOperand = calcBrain.resultValue
@@ -100,12 +91,22 @@ class ViewController: UIViewController, UITableViewDelegate {
         
     }
     
+    func unaryOperationPressed(operation : String) {
+        if calcBrain.rightOperand == nil {
+            equalWasPressed(operation: operation)
+            calcBrain.saveUnaryOperationSymbol(symbol: operation)
+        } else if calcBrain.resultValue != nil && calcBrain.leftOperand != nil {
+            equalWasPressed(operation: operation)
+            calcBrain.saveUnaryOperationSymbol(symbol: operation)
+            calcBrain.leftOperand = nil
+            calcBrain.rightOperand = nil
+        }
+    }
+    
     func equalWasPressed (operation: String) {
         calcBrain.result = { (resultValue, error) ->() in
             if resultValue != nil {
-                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)
-                print("\(resultValue)")
-                
+                self.outputController?.outputResult(result: NSString(format: "%.14g", resultValue!) as String)//displays result
             }
         }
         if calcBrain.leftOperand != nil && calcBrain.rightOperand != nil {
@@ -114,9 +115,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         calcBrain.digit(value: displayValue)
         calcBrain.utility(operation: UtilityOperation.Equal)
     }
-
+    
     func dotWasPressed(operation: String) {
-        
         if decimalUsed && userIsTyping {
             outputController!.display.text = String(outputController!.display.text! + ".")
             decimalUsed = false
@@ -132,18 +132,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         outputController?.outputInfo(info: "")
         outputController?.outputResult(result: "0")
         userIsTyping = false
-    }
-    
-    func unaryOperationPressed(operation : String) {
-        if calcBrain.rightOperand == nil {
-            equalWasPressed(operation: operation)
-           calcBrain.saveUnaryOperationSymbol(symbol: operation)
-        } else if calcBrain.resultValue != nil && calcBrain.leftOperand != nil {
-           equalWasPressed(operation: operation)
-             calcBrain.saveUnaryOperationSymbol(symbol: operation)
-            calcBrain.leftOperand = nil
-            calcBrain.rightOperand = nil
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
