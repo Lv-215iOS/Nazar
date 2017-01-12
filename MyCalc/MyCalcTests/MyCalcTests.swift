@@ -36,19 +36,30 @@ class MyCalcTests: XCTestCase {
         XCTAssert(result == 3)
     }
     
-    func test2Plus3() {
-        brain?.digit(value: 22.5)
-        brain?.binary(operation: .Plus)
-        brain?.digit(value: 3)
+    func testSin0() {
+        brain?.digit(value: 0)
+        brain?.unary(operation: .Sin)
         var result: Double? = nil
         brain?.result = {(value, error) in
             result = value
         }
         brain?.utility(operation: .Equal)
-        XCTAssert(result == 22.5)
+        XCTAssert(result == 0)
+        
+    }
+    
+    func testCos0() {
+        brain?.digit(value: 0)
+        brain?.unary(operation: .Cos)
+        var result: Double? = nil
+        brain?.result = {(value, error) in
+            result = value
+        }
+        brain?.utility(operation: .Equal)
+        XCTAssert(result == 1)
+        
     }
 
-    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
