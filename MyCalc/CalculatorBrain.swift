@@ -21,8 +21,10 @@ class CalculatorBrain: CalcBrainInterface {
     func digit(value: Double) {
         if leftOperand == nil {
             leftOperand = value
+            print("\(leftOperand)")
         } else if rightOperand == nil {
             rightOperand = value
+            print("\(rightOperand)")
         }
     }
     
@@ -103,6 +105,7 @@ class CalculatorBrain: CalcBrainInterface {
             if operationSymbol != nil {
                 binary(operation: operationSymbol!)
             }
+             result!(resultValue, nil)
         case .Clean:
             leftOperand = nil
             rightOperand = nil
